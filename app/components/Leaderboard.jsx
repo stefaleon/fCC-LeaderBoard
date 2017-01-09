@@ -1,48 +1,27 @@
 const React = require('react');
+const $ = require('jQuery');
 
 const CamperList = require('CamperList');
 
 const Leaderboard = React.createClass({
     getInitialState: function () {
-        return {
-            campers: [
-                {
-                    "username": "sjames1958gm",
-                    "img": "https://avatars.githubusercontent.com/u/4639625?v=3",
-                    "alltime": 4849,
-                    "recent": 464,
-                    "lastUpdate": "2017-01-05T19:53:10.778Z"
-                },
-                {
-                    "username": "Manish-Giri",
-                    "img": "https://avatars.githubusercontent.com/u/11348778?v=3",
-                    "alltime": 3294,
-                    "recent": 782,
-                    "lastUpdate": "2017-01-08T05:45:05.850Z"
-                },
-                {
-                    "username": "Takumar",
-                    "img": "https://avatars.githubusercontent.com/u/2951935?v=3",
-                    "alltime": 3138,
-                    "recent": 33,
-                    "lastUpdate": "2017-01-07T11:36:09.159Z"
-                },
-                {
-                    "username": "abhisekp",
-                    "img": "https://avatars.githubusercontent.com/u/1029200?v=3",
-                    "alltime": 3039,
-                    "recent": 64,
-                    "lastUpdate": "2017-01-07T11:39:10.108Z"
-                }
-            ]
-
-        };
+        var campers = [];
+        return { campers: campers }
+    },
+    componentDidMount: function () {
+        $.getJSON('https://fcctop100.herokuapp.com/api/fccusers/top/alltime', (alltimeData) => {
+            this.setState({campers: alltimeData});
+        });
     },
     handleClickAlltime: function () {
-        console.log('handleClickAlltime active!');
+        $.getJSON('https://fcctop100.herokuapp.com/api/fccusers/top/alltime', (alltimeData) => {
+            this.setState({campers: alltimeData});
+        });
     },
-    handleClickRecent: function () {
-        console.log('handleClickRecent active!');
+    handleClickRecent: function () {        
+        $.getJSON('https://fcctop100.herokuapp.com/api/fccusers/top/recent', (recentData) => {
+            this.setState({campers: recentData});
+        });
     },
     render: function () {
         var {campers} = this.state;

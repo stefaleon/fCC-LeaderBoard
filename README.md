@@ -24,6 +24,7 @@
 * Express
 * React
 * ReactDOM
+* jQuery
 
 #### devDependencies
 
