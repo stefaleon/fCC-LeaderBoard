@@ -1,0 +1,28 @@
+.leaderboard {
+	margin: auto
+	margin-top: 2em;
+	text-align: center;
+}
+
+footer {
+	text-align: center;
+}
+
+.camperlist-head {
+	background-color: #eee;
+	color: #111;
+	font-size: 1.2em;
+	margin-top: 2em;
+	margin-bottom: 1em;
+	padding: .2em;	
+}
+
+.camperlist-campers {
+	background-color: #fff;
+}
+
+.camper {
+	min-height: 40px;
+	margin-top: .7em;
+	margin-bottom: .7em;
+}
